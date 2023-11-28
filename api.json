@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "ad808c10-42b7-461d-8e26-60e172f1acb8",
+		"name": "Intellikid",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3303641"
+	},
+	"item": [
+		{
+			"name": "No Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@email.com\",\n    \"password\": \"S8perpass1.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Admin\",\n    \"email\": \"admin@email.com\",\n    \"password\": \"S8perpass1.\",\n    \"password_confirmation\": \"S8perpass1.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Router",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/new-custom-facebook-url",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"new-custom-facebook-url"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requires Auth",
+			"item": [
+				{
+					"name": "Urls",
+					"item": [
+						{
+							"name": "Url list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/urls",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"urls"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create URL",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"long_url\": \"https://facebook.com\",\n    \"short_url\": \"custom facebook url\",\n    \"expires_at\": \"2023-01-01 15:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/urls",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"urls"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update URL",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"long_url\": \"https://facebook.com\",\n    \"short_url\": \"new custom facebook url\",\n    \"expires_at\": \"2023-12-01 11:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/urls/11",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"urls",
+										"11"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show url",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"long_url\": \"https://facebook.com\",\n    \"short_url\": \"tavo tevo ama\",\n    \"expires_at\": \"2023-12-01 11:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/urls/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"urls",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete URL",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"long_url\": \"https://facebook.com\",\n    \"short_url\": \"tavo tevo ama\",\n    \"expires_at\": \"2023-01-01 11:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/urls/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"urls",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.addHeader('Accept: application/json');"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
